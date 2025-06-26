@@ -27,9 +27,14 @@ namespace YungChingProject.Controllers
         [HttpPost]
         public IActionResult Create(Category obj)
         {
-            _db.Categories.Add(obj);
-            _db.SaveChanges();
-            return RedirectToAction("Index");
+            if (ModelState.IsValid)
+            {
+                _db.Categories.Add(obj);
+                _db.SaveChanges();
+                TempData["success"] = "Create Success!";
+                return RedirectToAction("Index");
+            }
+            return View();
         }
 
         public IActionResult Edit(int? id)
@@ -55,6 +60,7 @@ namespace YungChingProject.Controllers
             {
                 _db.Categories.Update(obj);
                 _db.SaveChanges();
+                TempData["success"] = "Edit Success!";
                 return RedirectToAction("Index");
             }
             return View();
@@ -85,6 +91,7 @@ namespace YungChingProject.Controllers
             }
             _db.Categories.Remove(obj);
             _db.SaveChanges();
+            TempData["success"] = "Delete Success!";
             return RedirectToAction("Index");
         }
     }
