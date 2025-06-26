@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using YungChingProject.Data;
-using YungChingProject.Models;
+using YungChing.DataAccess.Data;
+using YungChing.Models;
 
-namespace YungChingProject.Controllers
+namespace YungChingWeb.Controllers
 {
     public class CategoryController : Controller
     {

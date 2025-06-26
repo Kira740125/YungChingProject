@@ -1,4 +1,4 @@
-namespace YungChingProject.Models
+namespace YungChing.Models
 {
     public class ErrorViewModel
     {

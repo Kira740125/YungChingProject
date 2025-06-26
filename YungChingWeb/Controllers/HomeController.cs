@@ -1,8 +1,8 @@
-using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
-using YungChingProject.Models;
+using System.Diagnostics;
+using YungChing.Models;
 
-namespace YungChingProject.Controllers
+namespace YungChingWeb.Controllers
 {
     public class HomeController : Controller
     {

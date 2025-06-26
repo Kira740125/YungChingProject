@@ -1,6 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using System;
-using YungChingProject.Data;
+using YungChing.DataAccess.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 

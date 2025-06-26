@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 
-namespace YungChingProject.Models
+namespace YungChing.Models
 {
     public class Category
     {

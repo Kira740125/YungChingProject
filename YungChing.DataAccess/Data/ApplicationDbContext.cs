@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using YungChingProject.Models;
+using YungChing.Models;
 
-namespace YungChingProject.Data
+namespace YungChing.DataAccess.Data
 {
     public class ApplicationDbContext : DbContext
     {

@@ -4,10 +4,10 @@
 
 #pragma warning disable CA1814 // Prefer jagged arrays over multidimensional
 
-namespace YungChingProject.Migrations
+namespace YungChing.DataAccess.Migrations
 {
     /// <inheritdoc />
-    public partial class AddCatergoryTableToDb : Migration
+    public partial class AddCategoryToDbAndSeedTable : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
