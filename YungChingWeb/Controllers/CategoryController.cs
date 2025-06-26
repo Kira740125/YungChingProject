@@ -1,21 +1,22 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using YungChing.DataAccess.Data;
+using YungChing.DataAccess.Repository.IRepository;
 using YungChing.Models;
 
 namespace YungChingWeb.Controllers
 {
     public class CategoryController : Controller
     {
-        private readonly ApplicationDbContext _db;
+        private readonly ICategoryRepository _categoryRepo;
 
-        public CategoryController(ApplicationDbContext db)
+        public CategoryController(ICategoryRepository category)
         {
-            _db = db;
+            _categoryRepo = category;
         }
 
         public IActionResult Index()
         {
-            List<Category> categories = _db.Categories.ToList();
+            List<Category> categories = _categoryRepo.GetAll().ToList();
             return View(categories);
         }
 
@@ -29,8 +30,8 @@ namespace YungChingWeb.Controllers
         {
             if (ModelState.IsValid)
             {
-                _db.Categories.Add(obj);
-                _db.SaveChanges();
+                _categoryRepo.Add(obj);
+                _categoryRepo.Save();
                 TempData["success"] = "Create Success!";
                 return RedirectToAction("Index");
             }
@@ -44,7 +45,7 @@ namespace YungChingWeb.Controllers
                 return NotFound();
             }
 
-            Category? item = _db.Categories.FirstOrDefault(u => u.Id == id);
+            Category? item = _categoryRepo.Get(u => u.Id == id);
 
             if (item == null)
             {
@@ -58,8 +59,8 @@ namespace YungChingWeb.Controllers
         {
             if (ModelState.IsValid)
             {
-                _db.Categories.Update(obj);
-                _db.SaveChanges();
+                _categoryRepo.Update(obj);
+                _categoryRepo.Save();
                 TempData["success"] = "Edit Success!";
                 return RedirectToAction("Index");
             }
@@ -72,7 +73,7 @@ namespace YungChingWeb.Controllers
             {
                 return NotFound();
             }
-            Category? item = _db.Categories.FirstOrDefault(u=>u.Id==id);
+            Category? item = _categoryRepo.Get(u=>u.Id==id);
             
             if (item == null)
             {
@@ -84,13 +85,13 @@ namespace YungChingWeb.Controllers
         [HttpPost, ActionName("Delete")]
         public IActionResult DeletePOST(int? id)
         {
-            Category? obj = _db.Categories.Find(id);
+            Category? obj = _categoryRepo.Get(u => u.Id == id);
             if (obj == null)
             {
                 return NotFound();
             }
-            _db.Categories.Remove(obj);
-            _db.SaveChanges();
+            _categoryRepo.Remove(obj);
+            _categoryRepo.Save();
             TempData["success"] = "Delete Success!";
             return RedirectToAction("Index");
         }

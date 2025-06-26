@@ -1,6 +1,8 @@
 using Microsoft.EntityFrameworkCore;
 using System;
 using YungChing.DataAccess.Data;
+using YungChing.DataAccess.Repository;
+using YungChing.DataAccess.Repository.IRepository;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,6 +12,8 @@ builder.Services.AddControllersWithViews();
 // 加入 DbContext，使用 SQLite
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
 
 var app = builder.Build();
 
