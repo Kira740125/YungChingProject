@@ -26,5 +26,9 @@ namespace YungChing.Models
         [Range(1, 100000)]
         public double Price { get; set; }
 
+        public int CategoryId { get; set; }
+        [ForeignKey("CategoryId")]
+        [ValidateNever]
+        public Category Category { get; set; }
     }
 }

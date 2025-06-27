@@ -30,6 +30,7 @@ namespace YungChing.DataAccess.Data
                     Address = "123 Main St, Springfield, USA",
                     Description = "Foreign House",
                     Price = 90000,
+                    CategoryId = 1
                 },
                 new Product
                 {
@@ -38,6 +39,7 @@ namespace YungChing.DataAccess.Data
                     Address = "456 Elm St, HsinChu, Taiwan",
                     Description = "Local House",
                     Price = 50000,
+                    CategoryId = 2
                 },
                 new Product
                 {
@@ -46,6 +48,7 @@ namespace YungChing.DataAccess.Data
                     Address = "789 Oak St, Taipei, Taiwan",
                     Description = "Local House",
                     Price = 40000,
+                    CategoryId = 3
                 },
                 new Product
                 {
@@ -54,6 +57,7 @@ namespace YungChing.DataAccess.Data
                     Address = "101 Pine St, Taichung, Taiwan",
                     Description = "Local House",
                     Price = 30000,
+                    CategoryId = 1
                 }
                 );
         }
